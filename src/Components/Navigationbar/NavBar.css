@@ -1,0 +1,14 @@
+.nav-bar {
+  margin: 10px 0 0 0;
+}
+
+.li__name {
+  margin: 0 10px 0 0;
+  text-transform: lowercase;
+}
+
+.li__name:hover {
+    color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
