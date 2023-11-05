@@ -1,16 +1,30 @@
-.about_page{
-    height: 100vh;
-    /* width: 100%; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.about_page {
+  height: 100vh;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.mouse_movement_state{
-    font-size: 8rem;
-    font-weight: 900;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: -webkit-linear-gradient(#18a302, #004a05);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.mouse_movement_state {
+  font-size: 8rem;
+  font-weight: 900;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background: -webkit-linear-gradient(#18a302, #004a05);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.summary {
+    width: 800px; /* Set the desired width */
+    height: 80px; /* Set the desired height */
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.resume-link{
+    cursor: pointer;
 }

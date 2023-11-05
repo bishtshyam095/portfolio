@@ -1,7 +1,10 @@
 #home{
     height: 100vh;
 }
-
+.my-name{
+    text-align: center;
+    font-size: 50px;
+}
 .home_img{
     height: 20rem;
     width: 40rem;

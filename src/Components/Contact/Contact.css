@@ -2,3 +2,25 @@
     height: 100vh;
     /* width: 100vw; */
 }
+
+.contact-info{
+    width: 800px;
+    height: 80px; 
+    position: absolute;
+    top: 250%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+    color: black;
+}
+
+.contact-info a:visited{
+    color: black;
+}
+
+.email-detail{
+    color: black;
+}
+
+.email-detail:visited{
+    color: black;
+}
