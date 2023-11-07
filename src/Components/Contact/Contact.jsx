@@ -12,7 +12,7 @@ function Contact() {
         </p>
         <p>
           Linkedin:&nbsp;
-          <a href="https://www.linkedin.com/in/shyambisht/">
+          <a href="https://www.linkedin.com/in/shyambisht/" target="_blank" >
             https://www.linkedin.com/in/shyambisht
           </a>
         </p>

@@ -1,9 +1,15 @@
+import { useState } from "react";
 import home_img from "../../assets/home_page_logo.jpeg";
 import NavBar from "../Navigationbar/NavBar";
 import "./Home.css";
 import { motion } from "framer-motion";
 
 function Home() {
+  const[showButton, setShowButton] = useState(false);
+  const showDiv = () => {
+    setShowButton(true);
+  }
+
   return (
     <section id="home">
       <div className="home__page">
@@ -19,9 +25,17 @@ function Home() {
           />
         </motion.div>
         <div className="nav__bar">
-          <NavBar />
+          <NavBar message="hello" />
         </div>
       </div>
+      <button onClick={showDiv}>click</button>
+      {showButton && (
+        <div className="newDiv">
+          <button>Home</button>
+          <button>about</button>
+          <button>contact</button>
+        </div>
+      )}
     </section>
   );
 }
