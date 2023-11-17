@@ -25,3 +25,17 @@ jobs:
 
     - name: Build
       run: npm run build
+
+    - name: Test with Code Coverage
+      run: npm test -- --coverage
+    
+  upload-coverage:
+    runs-on: ubuntu-latest
+    needs: build
+
+    
+    steps:
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
