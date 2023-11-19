@@ -20,11 +20,23 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
-      run: docker build -t shavb-portfolio .
+      run: docker build -t shav/shavb-portfolio .
 
     - name: Push the Docker image
-      run: docker push shavb-portfolio
+      run: docker push shav/shavb-portfolio:latest
 
+  deploy: 
+    needs: build 
+    runs-on: [aws-ec2]
+    steps:
+      - name: pull image from docker Hub
+        run: docker pull shav/shavb-portfolio:latest
+
+      - name: delete old container
+        run: docker rm -f portfolio-container
+        
+      - name: run docker container
+        run: docker run -d -p 5000:5000 -name portfolio-container portfolio
 
 # name: Build and Test
 # on:
