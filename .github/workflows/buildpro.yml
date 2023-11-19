@@ -1,4 +1,5 @@
-name: Build and Test
+name: Docker CI/CD
+
 on:
   push:
     branches:
@@ -12,30 +13,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
+    - name: Login to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Install Dependencies
-      run: npm install
+    - name: Build the Docker image
+      run: docker build -t shavb-portfolio .
 
-    - name: Build
-      run: npm run build
+    - name: Push the Docker image
+      run: docker push shavb-portfolio
 
-    - name: Test with Code Coverage
-      run: npm test -- --coverage
+
+# name: Build and Test
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout Repository
+#       uses: actions/checkout@v2
+
+#     - name: Set up Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: 20
+
+#     - name: Install Dependencies
+#       run: npm install
+
+#     - name: Build
+#       run: npm run build
+
+#     - name: Test with Code Coverage
+#       run: npm test -- --coverage
     
-  upload-coverage:
-    runs-on: ubuntu-latest
-    needs: build
+#   upload-coverage:
+#     runs-on: ubuntu-latest
+#     needs: build
 
-    
-    steps:
-      - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+#     steps:
+#       - name: Upload Coverage to Codecov
+#         uses: codecov/codecov-action@v2
+#         with:
+#           token: ${{ secrets.CODECOV_TOKEN }}
