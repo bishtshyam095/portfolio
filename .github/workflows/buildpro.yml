@@ -20,22 +20,20 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
-      run: docker build -t shav/shavb-portfolio .
+      run: docker build -t shyamportfolio/portfolio .
 
-    - name: Push the Docker image
-      run: |
-        set -x
-        docker build -t shav/shavb-portfolio .
+    - name: Publish docker image
+      run: docker push shyamportfolio/portfolio:latest
 
   deploy: 
     needs: build 
-    runs-on: [aws-ec2]
+    runs-on: [self-hosted]
     steps:
       - name: pull image from docker Hub
-        run: docker pull shav/shavb-portfolio:latest
+        run: docker pull shyamportfolio/portfolio:latest
 
       - name: delete old container
         run: docker rm -f portfolio-container
         
       - name: run docker container
-        run: docker run -d -p 5000:5000 --name portfolio-container portfolio shav/shavb-portfolio:latest
+        run: docker run -d -p 5000:5000 --name portfolio-container portfolio shyamportfolio/portfolio
