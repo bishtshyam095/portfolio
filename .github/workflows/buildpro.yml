@@ -16,10 +16,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    -name: Node setup
-    uses: actions/setup-node@v3
-    with:
-      node-version: 14
+    - name: Node setup
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
 
     - name: Login to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
@@ -34,11 +34,11 @@ jobs:
     needs: build 
     runs-on: [ip-172-31-21-217]
     steps:
-      - name: pull image from docker Hub
+      - name: Pull image from Docker Hub
         run: docker pull shyamportfolio/portfolio:latest
 
-      - name: delete old container
+      - name: Delete old container
         run: docker rm -f portfolio-container
         
-      - name: run docker container
-        run: docker run -d -p 5000:5000 --name portfolio-container portfolio shyamportfolio/portfolio
+      - name: Run Docker container
+        run: docker run -d -p 5000:5000 --name portfolio-container shyamportfolio/portfolio
