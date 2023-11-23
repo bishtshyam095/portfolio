@@ -36,6 +36,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y docker.io
+          
+      - name: Add GitHub Actions user to the docker group
+        run: sudo usermod -aG docker $USER
+
+      - name: Log out and log back in to apply group changes
+        run: |
+          sudo su - $USER
+          newgrp docker
 
       - name: Pull image from Docker Hub
         run: docker pull bishtshyam095/portfolio:latest
