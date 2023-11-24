@@ -34,20 +34,20 @@ jobs:
     steps:
       - name: Install Docker
         run: |
-          yum update -y
-          yum install docker -y
-          systemctl start docker
-          systemctl enable docker 
-          usermod -aG docker ec2-user
-          newgrp docker
-          systemctl status docker
+         sudo yum update -y
+         sudo yum install docker -y
+         sudo systemctl start docker
+         sudo systemctl enable docker 
+         sudo usermod -aG docker ec2-user
+         sudo newgrp docker
+         sudo systemctl status docker
 
       - name: install nginx
         run: |
-          yum install nginx -y
-          systemctl start nginx
-          systemctl enable nginx
-          systemctl status nginx
+          sudo yum install nginx -y
+          sudo systemctl start nginx
+          sudo systemctl enable nginx
+          sudo systemctl status nginx
 
       - name: Pull image from Docker Hub
         run: docker pull bishtshyam095/portfolio:latest
