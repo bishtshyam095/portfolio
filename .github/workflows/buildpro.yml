@@ -35,7 +35,8 @@ jobs:
       - name: Install Docker
         run: |
           sudo dnf install docker -y
-          sudo service docker start
+          sudo systemctl start docker
+          sudo systemctl enable docker 
           sudo usermod -aG docker ec2-user
           newgrp docker
           sudo systemctl status docker
