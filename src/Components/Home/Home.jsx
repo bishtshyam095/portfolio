@@ -13,7 +13,7 @@ function Home() {
   return (
     <section id="home">
       <div className="home__page">
-      <h1 className="my-name">Hello ATU</h1>
+      <h1 className="my-name">Hello ATU!!!!!</h1>
         <h1 className="my-name">Shyamsingh Bisht</h1>
         <motion.div
           whileHover={{scale: 1.05}}
