@@ -15,7 +15,7 @@ function About() {
   };
 
   return (
-    <section id="about">
+    <section id="about" data-testid="about-component">
       <div className="about_page">
         <div className="summary">
           Well, it's been quite the tech rollercoaster for me, your friendly

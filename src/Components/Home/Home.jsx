@@ -30,7 +30,7 @@ function Home() {
       </div>
       <button onClick={showDiv}>click</button>
       {showButton && (
-        <div className="newDiv">
+        <div className="newDiv" data-testid="new-div">
           <button>Home</button>
           <button>about</button>
           <button>contact</button>
