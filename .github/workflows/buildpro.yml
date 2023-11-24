@@ -40,6 +40,13 @@ jobs:
           newgrp docker
           sudo systemctl status docker
 
+      - name: install nginx
+        run: |
+          sudo yum install nginx -y
+          sudo systemctl start nginx
+          sudo systemctl enable nginx
+          sudo systemctl status nginx
+
       - name: Pull image from Docker Hub
         run: docker pull bishtshyam095/portfolio:latest
 
