@@ -13,6 +13,7 @@ function Home() {
   return (
     <section id="home">
       <div className="home__page">
+      <h1 className="my-name">Hello ATU</h1>
         <h1 className="my-name">Shyamsingh Bisht</h1>
         <motion.div
           whileHover={{scale: 1.05}}
@@ -30,7 +31,7 @@ function Home() {
       </div>
       <button onClick={showDiv}>click</button>
       {showButton && (
-        <div className="newDiv">
+        <div className="newDiv" data-testid="new-div">
           <button>Home</button>
           <button>about</button>
           <button>contact</button>

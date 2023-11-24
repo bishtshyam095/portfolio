@@ -15,7 +15,7 @@ function About() {
   };
 
   return (
-    <section id="about">
+    <section id="about" data-testid="about-component">
       <div className="about_page">
         <div className="summary">
           Well, it's been quite the tech rollercoaster for me, your friendly
@@ -23,7 +23,7 @@ function About() {
           unravel the secrets of JavaScript.In my epic journey, I've also had
           the honor of spending a solid year as a full-stack developer at Acuity
           Knowledge Partners. React and C# .NET Core have become my trusty
-          sidekicks in the world of coding. hehe
+          sidekicks in the world of coding. 
         </div>
         <div className="resume-link" onClick={openResume}>
           Resume

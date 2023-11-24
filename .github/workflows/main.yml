@@ -56,4 +56,11 @@ jobs:
         
       - name: Run Docker container
         run: docker run -d -p 5000:80 --name portfolio-container bishtshyam095/portfolio
+      
+      - name: Notify Slack
+        if: always()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!" "text":"Deployment successful! :tada:\nCustom Message: Your custom message here\nWorkflow: $GITHUB_WORKFLOW\nEvent: $GITHUB_EVENT_NAME\nStatus: ${{ job.status }}"}' https://hooks.slack.com/services/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
 
