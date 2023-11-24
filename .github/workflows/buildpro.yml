@@ -34,12 +34,9 @@ jobs:
     steps:
       - name: Install Docker
         run: |
-          sudo yum update -y
-          sudo yum install -y yum-utils device-mapper-persistent-data lvm2
           sudo amazon-linux-extras install docker
           sudo service docker start
           sudo usermod -a -G docker ec2-user
-          docker --version
 
       - name: Pull image from Docker Hub
         run: docker pull bishtshyam095/portfolio:latest
