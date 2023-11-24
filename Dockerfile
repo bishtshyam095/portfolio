@@ -12,4 +12,4 @@ RUN apt-get install nginx -y
 COPY --from=build /app/dist /var/www/html/
 EXPOSE 80
 # CMD ["nginx","-g","daemon off;"]
-CMD [ "num", "run", "dev" ]
+CMD [ "npm", "run", "dev" ]
