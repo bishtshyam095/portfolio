@@ -13,6 +13,7 @@ function Home() {
   return (
     <section id="home">
       <div className="home__page">
+        <h1>Hello Button testing CI CD</h1>
       <h1 className="my-name">WElCOME TO ATU</h1>
       <h1 className="my-name">DevOps - L00179095</h1>
       <h1 className="my-name">Helllll000, This is for CI/CD testing</h1>
